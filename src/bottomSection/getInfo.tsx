@@ -4,7 +4,7 @@ import App from '../App';
 import '../index.css';
 
 export function getInfo() {
-  let url: string = 'https://swapi.dev/api/people/';
+  const url: string = 'https://swapi.dev/api/people/';
 
   async function getInfoFromWeb(link: string) {
     const response = await fetch(link, {
@@ -21,7 +21,7 @@ export function getInfo() {
 
   getInfoFromWeb(url)
     .then((info) => {
-      let res = [];
+      const res = [];
       for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
       }

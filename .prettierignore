@@ -1,2 +1,2 @@
-# Ignore artifacts:
-public
+test
+node_modules

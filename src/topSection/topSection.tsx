@@ -6,7 +6,7 @@ export default class TopSection extends Component {
   }
 
   getValue() {
-    let result: string | undefined | readonly string[] | number | null = null;
+    let result: string | undefined | string[] | number | null = null;
 
     if (localStorage.getItem('previousSearch') !== null) {
       result = localStorage.getItem('previousSearch');
@@ -16,16 +16,16 @@ export default class TopSection extends Component {
 
   render() {
     return (
-      <section id='top_section'>
+      <section id="top_section">
         <input
-          type='search'
-          id='inputSearch'
+          type="search"
+          id="inputSearch"
           onChange={() =>
             this.setValue((document.getElementById('inputSearch') as HTMLInputElement).value)
           }
           placeholder={this.getValue()}
         />
-        <input id='buttonSearch' type='button' value='Search' />
+        <input id="buttonSearch" type="button" value="Search" />
       </section>
     );
   }

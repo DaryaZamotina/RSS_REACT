@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-       <TopSection />
+      <TopSection />
       <BottomSection />
     </>
   );

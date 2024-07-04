@@ -1,4 +1,3 @@
 export function setSearchValue(value: string): void {
-    localStorage.setItem('previousSearch', value);
-  }
-  
+  localStorage.setItem('previousSearch', value);
+}
