@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { getExactInfo } from '../bottomSection/getExactInfo';
 
 export default class TopSection extends Component {
   setValue(val: string) {
@@ -25,7 +26,7 @@ export default class TopSection extends Component {
           }
           placeholder={this.getValue()}
         />
-        <input id="buttonSearch" type="button" value="Search" />
+        <input id="buttonSearch" type="button" value="Search" onClick={getExactInfo}/>
       </section>
     );
   }

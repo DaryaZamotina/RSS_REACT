@@ -5,7 +5,6 @@ import '../index.css';
 
 export function getInfo() {
   const url: string = 'https://swapi.dev/api/people/';
-
   async function getInfoFromWeb(link: string) {
     const response = await fetch(link, {
       method: 'get',
