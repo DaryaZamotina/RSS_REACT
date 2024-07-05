@@ -7,10 +7,9 @@ export default class TopSection extends Component {
   }
 
   getValue() {
-    let result: string | undefined | string[] | number | null = null;
-
+    let result;
     if (localStorage.getItem('previousSearch') !== null) {
-      result = localStorage.getItem('previousSearch');
+      result = localStorage.getItem('previousSearch') ?? undefined;
     } else result = '';
     return result;
   }

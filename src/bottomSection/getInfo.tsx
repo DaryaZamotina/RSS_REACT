@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import App from '../App';
 import '../index.css';
+import { createRoot } from 'react-dom/client';
 
-export function getInfo() {
-  const url: string = 'https://swapi.dev/api/people/';
+export function getInfo(search?: string) {
+  let url: string;
+  if (search) {
+    url = `https://swapi.dev/api/people/${search}`;
+  }
+  url = `https://swapi.dev/api/people/`;
+
   async function getInfoFromWeb(link: string) {
     const response = await fetch(link, {
       method: 'get',
@@ -26,11 +31,15 @@ export function getInfo() {
       }
       localStorage.setItem('results', JSON.stringify(res));
 
-      ReactDOM.createRoot(document.getElementById('root')!).render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      );
+      if (document.getElementById('loader') && document.getElementById('loader') !== null) {
+        const root = createRoot(document.getElementById('loader'));
+
+        root.render(
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        );
+      }
       return info;
     })
     .catch((error) => console.log(error));
