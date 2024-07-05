@@ -5,19 +5,19 @@ import '../index.css';
 
 export function getExactInfo() {
   const url: string = 'https://swapi.dev/api/people/search';
-  
+
   let bodySearch = new URLSearchParams({
-    name: 'A'
+    name: 'A',
   });
   async function getExactInfoFromWeb(link: string) {
     const response = await fetch(link, {
       method: 'post',
       headers: {
-       // 'Content-Type': 'application/json',
-       'accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Content-Type': 'application/json',
+        accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: bodySearch
+      body: bodySearch,
     });
 
     const res = await response.json();
@@ -30,7 +30,7 @@ export function getExactInfo() {
       //const res = [];
       console.log(info);
 
-     /* for (let i = 0; i < JSON.parse(info).results.length; i++) {
+      /* for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
       }
       localStorage.setItem('resultSearch', JSON.stringify(res));*/

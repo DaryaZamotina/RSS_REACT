@@ -9,11 +9,11 @@ function App() {
 
   return (
     <>
-    <ErrorBoundary fallback={<p>Something went wrong</p>}>
-    <TopSection />
-    </ErrorBoundary>
-    <ErrorBoundary fallback={<p>Something went wrong</p>}>
-      <BottomSection />
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <TopSection />
+      </ErrorBoundary>
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <BottomSection />
       </ErrorBoundary>
     </>
   );

@@ -26,7 +26,7 @@ export default class TopSection extends Component {
           }
           placeholder={this.getValue()}
         />
-        <input id="buttonSearch" type="button" value="Search" onClick={getExactInfo}/>
+        <input id="buttonSearch" type="button" value="Search" onClick={getExactInfo} />
       </section>
     );
   }
