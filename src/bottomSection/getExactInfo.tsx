@@ -6,7 +6,7 @@ import '../index.css';
 export function getExactInfo() {
   const url: string = 'https://swapi.dev/api/people/search';
 
-  let bodySearch = new URLSearchParams({
+  const bodySearch = new URLSearchParams({
     name: 'A',
   });
   async function getExactInfoFromWeb(link: string) {
