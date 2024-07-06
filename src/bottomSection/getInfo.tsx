@@ -7,8 +7,10 @@ export function getInfo(search?: string) {
   let url: string;
   if (search) {
     url = `https://swapi.dev/api/people/${search}`;
+    console.log(url);
+  } else {
+    url = `https://swapi.dev/api/people/`;
   }
-  url = `https://swapi.dev/api/people/`;
 
   async function getInfoFromWeb(link: string) {
     const response = await fetch(link, {
@@ -25,6 +27,7 @@ export function getInfo(search?: string) {
 
   getInfoFromWeb(url)
     .then((info) => {
+      console.log(info);
       const res = [];
       for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);

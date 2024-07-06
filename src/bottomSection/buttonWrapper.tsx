@@ -1,18 +1,8 @@
 import { Component } from 'react';
 import { getInfo } from './getInfo';
+import { Counter } from './counter';
 
 export default class ButtonWrapper extends Component {
-  /*constructor(props){
-    super(props);
-    this.state = 1;
-  }*/
-  getCount() {
-    let i: number;
-    i = 1;
-    i++;
-    return i;
-  }
-
   render() {
     return (
       <form id="buttonWrapper">
@@ -20,13 +10,19 @@ export default class ButtonWrapper extends Component {
           id="buttonPrevious"
           type="button"
           value="Previous"
-          onClick={() => getInfo('previous')}
+          onClick={() => {
+            Counter.minus();
+            getInfo(`?page=${Counter.getCount()}`);
+          }}
         />
         <input
           id="buttonNext"
           type="button"
           value="Next"
-          onClick={() => getInfo(`?page=${this.getCount}`)}
+          onClick={() => {
+            Counter.plus();
+            getInfo(`?page=${Counter.getCount()}`);
+          }}
         />
       </form>
     );
