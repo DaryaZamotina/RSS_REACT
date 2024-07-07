@@ -27,6 +27,7 @@ export default class BottomSection extends Component<IProps> {
       (!localStorage.getItem('previousSearch') && !localStorage.getItem('results')) ||
       this.props.count <= 0
     ) {
+      console.log('There is no data');
       throw new Error('There is no data');
     }
 

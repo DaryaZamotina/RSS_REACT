@@ -1,7 +1,6 @@
 import React from 'react';
 import { App } from '../App';
 import '../index.css';
-//import { createRoot } from 'react-dom/client';
 import { Counter } from './counter';
 import root from '../main';
 
@@ -9,7 +8,6 @@ export function getInfo(search?: string) {
   let url: string;
   if (search) {
     url = `https://swapi.dev/api/people/${search}`;
-    console.log(url);
   } else {
     url = `https://swapi.dev/api/people/`;
   }
