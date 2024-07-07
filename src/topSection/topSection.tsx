@@ -3,7 +3,8 @@ import { getExactInfo } from '../bottomSection/getExactInfo';
 
 export default class TopSection extends Component {
   setValue(val: string) {
-    localStorage.setItem('previousSearch', val);
+    let newVal: string = val.trim();
+    localStorage.setItem('previousSearch', newVal);
   }
 
   getValue() {
