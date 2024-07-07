@@ -1,7 +1,9 @@
 import React from 'react';
 import { App } from '../App';
 import '../index.css';
-import { createRoot } from 'react-dom/client';
+//import { createRoot } from 'react-dom/client';
+import { Counter } from './counter';
+import root from '../main';
 
 export function getInfo(search?: string) {
   let url: string;
@@ -33,15 +35,11 @@ export function getInfo(search?: string) {
       }
       localStorage.setItem('results', JSON.stringify(res));
 
-      if (document.getElementById('loader') && document.getElementById('loader') !== null) {
-        const root = createRoot(document.getElementById('loader'));
-
-        root.render(
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        );
-      }
+      root.render(
+        <React.StrictMode>
+          <App info={String(Counter.getCount())} />
+        </React.StrictMode>
+      );
       return info;
     })
     .catch((error) => console.log(error));

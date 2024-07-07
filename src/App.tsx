@@ -7,17 +7,21 @@ import React from 'react';
 import { Counter } from './bottomSection/counter';
 import PageWrapper from './bottomSection/pageNumber';
 
-export class App extends React.Component {
+type Info = {
+  info: string;
+};
+
+export class App extends React.Component<Info> {
   render() {
     return (
-      <>
+      <div id={this.props.info}>
         <TopSection />
         <ErrorBoundary>
           <BottomSection data={localStorage.getItem('results')} count={Counter.getCount()} />
         </ErrorBoundary>
         <PageWrapper />
         <ButtonWrapper />
-      </>
+      </div>
     );
   }
 }
