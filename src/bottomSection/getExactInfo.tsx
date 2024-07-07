@@ -1,23 +1,25 @@
-//import React from 'react';
-//import ReactDOM from 'react-dom/client';
-//import App from '../App';
+import React from 'react';
+import {App} from '../App';
+import '../index.css';
+import { createRoot } from 'react-dom/client';
 import '../index.css';
 
 export function getExactInfo() {
-  const url: string = 'https://swapi.dev/api/people/search';
+  const url: string = `https://swapi.dev/api/people/?search=${localStorage.getItem("previousSearch")}`;
+  console.log("url for search = " + url);
 
-  const bodySearch = new URLSearchParams({
+ /* const bodySearch = new URLSearchParams({
     name: 'A',
-  });
+  });*/
   async function getExactInfoFromWeb(link: string) {
     const response = await fetch(link, {
-      method: 'post',
+      method: 'get',
       headers: {
-        // 'Content-Type': 'application/json',
-        accept: 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+    //    accept: 'application/json',
+      //  'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: bodySearch,
+   //   body: bodySearch,
     });
 
     const res = await response.json();
@@ -27,13 +29,24 @@ export function getExactInfo() {
 
   getExactInfoFromWeb(url)
     .then((info) => {
-      //const res = [];
+      const res = [];
       console.log(info);
 
-      /* for (let i = 0; i < JSON.parse(info).results.length; i++) {
+       for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
       }
-      localStorage.setItem('resultSearch', JSON.stringify(res));*/
+      localStorage.setItem('results', JSON.stringify(res));
+
+      if (document.getElementById('loader') && document.getElementById('loader') !== null) {
+        const root = createRoot(document.getElementById('loader'));
+
+        root.render(
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        );
+      } 
+
       return info;
     })
     .catch((error) => console.log(error));
