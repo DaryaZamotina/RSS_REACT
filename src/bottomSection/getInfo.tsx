@@ -1,7 +1,8 @@
 import React from 'react';
-import App from '../App';
+import {App} from '../App';
 import '../index.css';
 import { createRoot } from 'react-dom/client';
+//import BottomSection from './bottomSection';
 
 export function getInfo(search?: string) {
   let url: string;
@@ -34,7 +35,7 @@ export function getInfo(search?: string) {
       }
       localStorage.setItem('results', JSON.stringify(res));
 
-      if (document.getElementById('loader') && document.getElementById('loader') !== null) {
+     if (document.getElementById('loader') && document.getElementById('loader') !== null) {
         const root = createRoot(document.getElementById('loader'));
 
         root.render(
@@ -42,7 +43,7 @@ export function getInfo(search?: string) {
             <App />
           </React.StrictMode>
         );
-      }
+      } 
       return info;
     })
     .catch((error) => console.log(error));

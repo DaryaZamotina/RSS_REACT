@@ -1,24 +1,22 @@
-//import { useState } from 'react';
 import TopSection from './topSection/topSection';
 import BottomSection from './bottomSection/bottomSection';
 import './App.css';
-import { ErrorBoundary } from './ErrorBoundary';
+//import { ErrorBoundary } from './ErrorBoundary';
 import ButtonWrapper from './bottomSection/buttonWrapper';
+import React from 'react'
+import { Counter } from './bottomSection/counter';
+import PageWrapper from './bottomSection/pageNumber';
 
-function App() {
-  //const [count, setCount] = useState(0);
+export class App extends React.Component {
 
-  return (
+  render() {
+    return (
     <>
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
-        <TopSection />
-      </ErrorBoundary>
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
-        <BottomSection />
-      </ErrorBoundary>
+      <TopSection />
+      <BottomSection data = {localStorage.getItem('results')} count = {Counter.getCount()}/>
+      <PageWrapper/>
       <ButtonWrapper />
     </>
-  );
+    )
 }
-
-export default App;
+}

@@ -1,9 +1,13 @@
 import { Component } from 'react';
 
-export default class BottomSection extends Component {
-  getInfoFromLocal() {
-    const results: string = localStorage.getItem('results');
-    const arr = JSON.parse(results);
+interface IProps {
+  data: string;
+  count: number;
+}
+
+export default class BottomSection extends Component<IProps> {
+  render() {
+    const arr = JSON.parse(this.props.data);
     let listOfresults;
     const wholeList = [];
     for (let i = 0; i < arr.length; i++) {
@@ -19,10 +23,11 @@ export default class BottomSection extends Component {
       );
       wholeList.push(listOfresults);
     }
-    return <div id="listOfResults">{wholeList}</div>;
-  }
 
-  render() {
-    return <section id="bottom_section"> {this.getInfoFromLocal()}</section>;
+    return (
+    <section id="bottom_section" className={`${this.props.count}`}> 
+    <div id="listOfResults">{wholeList}</div>
+    </section>
+    )
   }
 }

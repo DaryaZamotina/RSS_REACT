@@ -1,5 +1,5 @@
 export class Counter {
-  private static count: number = 0;
+  private static count: number = 1;
 
   static plus(): void {
     Counter.count++;
