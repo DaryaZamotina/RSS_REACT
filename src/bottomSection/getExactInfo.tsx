@@ -1,14 +1,14 @@
 import React from 'react';
-import {App} from '../App';
+import { App } from '../App';
 import '../index.css';
 import { createRoot } from 'react-dom/client';
 import '../index.css';
 
 export function getExactInfo() {
-  const url: string = `https://swapi.dev/api/people/?search=${localStorage.getItem("previousSearch")}`;
-  console.log("url for search = " + url);
+  const url: string = `https://swapi.dev/api/people/?search=${localStorage.getItem('previousSearch')}`;
+  console.log('url for search = ' + url);
 
- /* const bodySearch = new URLSearchParams({
+  /* const bodySearch = new URLSearchParams({
     name: 'A',
   });*/
   async function getExactInfoFromWeb(link: string) {
@@ -16,10 +16,10 @@ export function getExactInfo() {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
-    //    accept: 'application/json',
-      //  'Content-Type': 'application/x-www-form-urlencoded',
+        //    accept: 'application/json',
+        //  'Content-Type': 'application/x-www-form-urlencoded',
       },
-   //   body: bodySearch,
+      //   body: bodySearch,
     });
 
     const res = await response.json();
@@ -32,7 +32,7 @@ export function getExactInfo() {
       const res = [];
       console.log(info);
 
-       for (let i = 0; i < JSON.parse(info).results.length; i++) {
+      for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
       }
       localStorage.setItem('results', JSON.stringify(res));
@@ -45,7 +45,7 @@ export function getExactInfo() {
             <App />
           </React.StrictMode>
         );
-      } 
+      }
 
       return info;
     })

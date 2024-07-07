@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import { getExactInfo } from '../bottomSection/getExactInfo';
+import ButtonError from './buttonError';
 
 export default class TopSection extends Component {
   setValue(val: string) {
-    let newVal: string = val.trim();
+    const newVal: string = val.trim();
     localStorage.setItem('previousSearch', newVal);
   }
 
@@ -27,6 +28,7 @@ export default class TopSection extends Component {
           placeholder={this.getValue()}
         />
         <input id="buttonSearch" type="button" value="Search" onClick={getExactInfo} />
+        <ButtonError />
       </section>
     );
   }

@@ -25,9 +25,9 @@ export default class BottomSection extends Component<IProps> {
     }
 
     return (
-    <section id="bottom_section" className={`${this.props.count}`}> 
-    <div id="listOfResults">{wholeList}</div>
-    </section>
-    )
+      <section id="bottom_section" className={`${this.props.count}`}>
+        <div id="listOfResults">{wholeList}</div>
+      </section>
+    );
   }
 }
