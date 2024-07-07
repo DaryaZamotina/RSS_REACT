@@ -23,6 +23,12 @@ export default class BottomSection extends Component<IProps> {
       );
       wholeList.push(listOfresults);
     }
+    if (
+      (!localStorage.getItem('previousSearch') && !localStorage.getItem('results')) ||
+      this.props.count <= 0
+    ) {
+      throw new Error('There is no data');
+    }
 
     return (
       <section id="bottom_section" className={`${this.props.count}`}>

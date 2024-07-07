@@ -4,6 +4,13 @@ import { App } from './App.tsx';
 import './index.css';
 import { getInfo } from './bottomSection/getInfo.tsx';
 import Loader from './loader.tsx';
+import { getExactInfo } from './bottomSection/getExactInfo.tsx';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('results')) {
@@ -13,7 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
         <Loader />
       </React.StrictMode>
     );
-  } else {
+  } else if (localStorage.getItem('previousSearch')) {
+    getExactInfo();
     ReactDOM.createRoot(document.getElementById('root')!).render(
       <React.StrictMode>
         <App />

@@ -1,6 +1,7 @@
 import React from 'react';
 
 type State = {
+  hasError: boolean;
   error: boolean;
 };
 
@@ -9,22 +10,35 @@ type Children = {
 };
 
 export class ErrorBoundary extends React.Component<Children, State> {
-  state: State = {
-    error: null,
-  };
+  constructor(props: Children) {
+    super(props);
+    this.state = {
+      hasError: false,
+      error: undefined,
+    };
+  }
 
   static getDerivedStateFromError(error: string) {
-    return { error };
+    if (!localStorage.getItem('previousSearch') && !localStorage.getItem('results')) {
+      return {
+        hasError: true,
+        error: error,
+      };
+    }
   }
 
   componentDidCatch(error: Error): void {
-    console.log('Error in ErrorBoundary: ' + error);
+    if (!localStorage.getItem('previousSearch') && !localStorage.getItem('results')) {
+      console.log('Error in ErrorBoundary: ' + error);
+      console.error(error);
+    }
   }
 
   render() {
-    const { error } = this.state;
-
-    if (error) {
+    if (
+      this.state.hasError ||
+      (!localStorage.getItem('previousSearch') && !localStorage.getItem('results'))
+    ) {
       return (
         <div>
           <p>Something does not work correctly...</p>

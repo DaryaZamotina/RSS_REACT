@@ -11,12 +11,12 @@ export class App extends React.Component {
   render() {
     return (
       <>
+        <TopSection />
         <ErrorBoundary>
-          <TopSection />
           <BottomSection data={localStorage.getItem('results')} count={Counter.getCount()} />
-          <PageWrapper />
-          <ButtonWrapper />
         </ErrorBoundary>
+        <PageWrapper />
+        <ButtonWrapper />
       </>
     );
   }

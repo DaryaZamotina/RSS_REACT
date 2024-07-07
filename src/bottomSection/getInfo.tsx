@@ -2,7 +2,6 @@ import React from 'react';
 import { App } from '../App';
 import '../index.css';
 import { createRoot } from 'react-dom/client';
-//import BottomSection from './bottomSection';
 
 export function getInfo(search?: string) {
   let url: string;
@@ -28,7 +27,6 @@ export function getInfo(search?: string) {
 
   getInfoFromWeb(url)
     .then((info) => {
-      console.log(info);
       const res = [];
       for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
