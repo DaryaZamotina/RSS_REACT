@@ -1,4 +1,4 @@
-const config = {
+{
   "printWidth": 100,
   "trailingComma": "es5",
   "singleQuote": true,
@@ -6,4 +6,3 @@ const config = {
   "tabWidth": 2,
   "useTabs": false
 }
-export default config;
