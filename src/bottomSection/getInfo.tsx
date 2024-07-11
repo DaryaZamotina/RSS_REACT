@@ -35,7 +35,7 @@ export function getInfo(search?: string) {
 
       root.render(
         <React.StrictMode>
-          <App info={String(Counter.getCount())} />
+          <App />
         </React.StrictMode>
       );
       return info;

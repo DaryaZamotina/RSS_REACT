@@ -2,10 +2,10 @@ import React from 'react';
 import { App } from './App.tsx';
 import './index.css';
 import { getInfo } from './bottomSection/getInfo.tsx';
-import { getExactInfo } from './bottomSection/getExactInfo.tsx';
-import { createRoot } from 'react-dom/client';
-import { Counter } from './bottomSection/counter.tsx';
 import Loader from './loader.tsx';
+import { getExactInfo } from './bottomSection/getExactInfo.tsx';
+import { Counter } from './bottomSection/counter.tsx';
+import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 if (!localStorage.getItem('results')) {

@@ -31,7 +31,7 @@ export function getExactInfo() {
 
       root.render(
         <React.StrictMode>
-          <App info={String(Counter.getCount())} />
+          <App />
         </React.StrictMode>
       );
 
