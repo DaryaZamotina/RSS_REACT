@@ -1,7 +1,6 @@
 import React from 'react';
 import { App } from '../App';
 import '../index.css';
-import { Counter } from './counter';
 import root from '../main';
 
 export function getExactInfo() {

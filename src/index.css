@@ -62,6 +62,24 @@ body {
   font-style: oblique;
 }
 
+#pageWrapper {
+  width: 20rem;
+  overflow-x: hidden;
+}
+
+#currentPage {
+  font-size: 1.5em;
+  color: rgb(99, 14, 23);
+  font-weight: bold;
+}
+
+.page {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

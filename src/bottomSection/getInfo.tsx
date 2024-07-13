@@ -1,7 +1,6 @@
 import React from 'react';
 import { App } from '../App';
 import '../index.css';
-import { Counter } from './counter';
 import root from '../main';
 
 export function getInfo(search?: string) {
@@ -31,6 +30,7 @@ export function getInfo(search?: string) {
       for (let i = 0; i < JSON.parse(info).results.length; i++) {
         res.push(JSON.parse(info).results[i]);
       }
+      localStorage.setItem('pagesNumber', JSON.stringify(JSON.parse(info).count));
       localStorage.setItem('results', JSON.stringify(res));
 
       root.render(
